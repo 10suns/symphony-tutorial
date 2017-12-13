@@ -5,17 +5,17 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product
+ * AdminUser
  *
- * @ORM\Table(name="products")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @ORM\Table(name="admin_users")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AdminUserRepository")
  */
-class Product
+class AdminUser
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -30,12 +30,10 @@ class Product
         return $this->id;
     }
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=false)
      */
     private $name;
     /**
-     * Get name
-     * 
      * @return string
      */
     public function getName()
@@ -43,14 +41,14 @@ class Product
         return $this->name;
     }
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="integer", nullable=false)
      */
-    private $sku;
+    private $role;
     /**
-     * @return string
+     * return int
      */
-    public function getSku()
+    public function getRole()
     {
-        return $this->sku;
+       return $this->role; 
     }
 }
